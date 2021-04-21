@@ -7,6 +7,6 @@ const issue = await octokit.rest.issues.get({
   repo: 'profile-portfolio',
   issue_number: 135
 }).then(response => {
-  console.log(JSON.stringify(response.data.title))
+  console.log(JSON.stringify(response))
 })
 
