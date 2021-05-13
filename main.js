@@ -9,4 +9,3 @@ const issue = await octokit.rest.issues.get({
 }).then(response => {
   console.log(JSON.stringify(response))
 })
-
