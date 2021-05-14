@@ -18,8 +18,19 @@ router.get('/', function(req, res, next) {
 router.get('/github-issue', function(req, res, next) {
   axios.get('https://api.github.com/repos/mm-masahiro/profile-portfolio/issues/135').then(
     function(response) {
-      // console.log(response.data)
       res.send(response.data)
+    }
+  )
+})
+
+router.get('/github-commits', function(req, res, next) {
+  // axios.get('https://api.github.com/users/mm-masahiro/received_events/public').then(
+  axios.get('https://api.github.com/repos/mm-masahiro/slack-github-api/stats/participation').then(
+    function(response) {
+      // const commits = response.data;
+      // const commitsNum = commits.length
+      // res.send(commitsNum);
+      res.send(response.data.owner);
     }
   )
 })
