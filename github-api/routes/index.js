@@ -27,13 +27,6 @@ router.get('/github-issue', function(req, res, next) {
       res.send(issue)
     }
   );
-
-  // const issue = issues.map(function(issue) {
-  //   return issue;
-  // })
-
-  // console.log(typeof(issues))
-  // res.send(response);
 })
 
 router.get('/github-commits', function(req, res, next) {
