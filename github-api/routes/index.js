@@ -16,11 +16,24 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/github-issue', function(req, res, next) {
-  axios.get('https://api.github.com/repos/mm-masahiro/profile-portfolio/issues/135').then(
+  const issues = axios.get('https://api.github.com/repos/mm-masahiro/profile-portfolio/issues').then(
     function(response) {
-      res.send(response.data)
+      const issueObject = response.data;
+      const issueToArray = Object.entries(issueObject);
+
+      const issue = issueToArray.map(function(value) {
+        return value[1].title
+      })
+      res.send(issue)
     }
-  )
+  );
+
+  // const issue = issues.map(function(issue) {
+  //   return issue;
+  // })
+
+  // console.log(typeof(issues))
+  // res.send(response);
 })
 
 router.get('/github-commits', function(req, res, next) {
